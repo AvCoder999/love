@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Important Question 💖</title>
+  <style>
+    body {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-family: Arial, sans-serif;
+      background: #ffe6f0;
+    }
+
+    h1 {
+      margin-bottom: 30px;
+    }
+
+    button {
+      font-size: 18px;
+      padding: 10px 20px;
+      margin: 10px;
+      cursor: pointer;
+    }
+
+    #no {
+      position: absolute;
+    }
+
+    #result {
+      display: none;
+      font-size: 24px;
+      color: #d6006d;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Do you still love me? 💕</h1>
+
+  <div>
+    <button id="yes">Yes ❤️</button>
+    <button id="no">No 💔</button>
+  </div>
+
+  <div id="result">
+    🎉 Congratulations! I love you too! 💖🥰
+  </div>
+
+  <script>
+    const noBtn = document.getElementById("no");
+    const yesBtn = document.getElementById("yes");
+    const result = document.getElementById("result");
+
+    noBtn.addEventListener("mouseover", () => {
+      const x = Math.random() * (window.innerWidth - 100);
+      const y = Math.random() * (window.innerHeight - 50);
+      noBtn.style.left = x + "px";
+      noBtn.style.top = y + "px";
+    });
+
+    yesBtn.addEventListener("click", () => {
+      result.style.display = "block";
+    });
+  </script>
+
+</body>
+</html>
