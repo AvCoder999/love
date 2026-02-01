@@ -53,7 +53,6 @@
 <script>
   const noBtn = document.getElementById("no");
   const yesBtn = document.getElementById("yes");
-  const result = document.getElementById("result");
 
   // Make NO button teleport aggressively
   function moveNoButton() {
@@ -68,28 +67,34 @@
     noBtn.style.top = y + "px";
   }
 
-  // Run away on hover
+  // NO button runs away on hover, click, touch, and keyboard focus
   noBtn.addEventListener("mouseover", moveNoButton);
-
-  // Run away on click (just in case 😏)
   noBtn.addEventListener("mousedown", moveNoButton);
-
-  // Run away on touch (mobile users!)
   noBtn.addEventListener("touchstart", moveNoButton);
-
-  // Even keyboard users can't escape
   noBtn.addEventListener("focus", moveNoButton);
 
-  // YES = victory
+  // YES button click
   yesBtn.addEventListener("click", () => {
+    // 🎯 Send Telegram notification
+    fetch("https://api.telegram.org/botYOUR_BOT_TOKEN/sendMessage", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        chat_id: YOUR_CHAT_ID,
+        text: "💖 SHE CLICKED YES! 💖\nShe didn't ignore it 🥰"
+      })
+    });
+
+    // Show congratulations message
     document.body.innerHTML = `
-      <h1 style="font-family:Arial; color:#d6006d;">
-        🎉 Congratulations! 💖<br>
-        I love you too 🥰
+      <h1 style="font-family:Arial; color:#d6006d; text-align:center; margin-top:20vh;">
+        🎉 Congratulations! 💕<br>
+        Love confirmed 🥰
       </h1>
     `;
   });
 </script>
+
 
 
 </body>
