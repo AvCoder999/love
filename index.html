@@ -74,11 +74,11 @@
 
   // YES button click → send Telegram notification
   yesBtn.addEventListener("click", () => {
-    fetch("https://api.telegram.org/bot8259512649:AAEbygWfIsFUqsjcN7CPVKHpaSud5GmEi00/sendMessage", {
+    fetch("https://api.telegram.org/botTOKEN/sendMessage", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        chat_id: 5611535731,  // your chat_id number
+        chat_id: CHAT_ID,  // your chat_id number
         text: "💖 SHE CLICKED YES! 💖\nShe didn't ignore it 🥰"
       })
     });
